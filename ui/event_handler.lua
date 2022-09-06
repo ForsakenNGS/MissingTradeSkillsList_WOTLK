@@ -19,7 +19,7 @@ MTSLUI_EVENT_HANDLER = {
                 -- load the data for the player
                 local status_loading_player = MTSL_LOGIC_PLAYER_NPC:LoadPlayer()
                 if status_loading_player ~= "new" and status_loading_player ~= "existing" then
-                    print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL (TBC): Could not load player info (Empty '" .. status_loading_player .. "'). Try reloading this addon!")
+                    print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL (WOTLK): Could not load player info (Empty '" .. status_loading_player .. "'). Try reloading this addon!")
                     self.addon_loaded = 0
                 else
                     -- Initialise the minimap button
@@ -47,9 +47,9 @@ MTSLUI_EVENT_HANDLER = {
                     -- print loaded message if possible
                     if MTSLUI_SAVED_VARIABLES and (MTSLUI_SAVED_VARIABLES:GetShowWelcomeMessage() == 1 or MTSLUI_SAVED_VARIABLES:GetFirstRunAfterUpdate() == 1) then
                         print(MTSLUI_FONTS.COLORS.TEXT.TITLE .. MTSLUI_ADDON.NAME .. MTSLUI_FONTS.COLORS.TEXT.NORMAL .. " (by " .. MTSLUI_ADDON.AUTHOR .. ")" .. MTSLUI_FONTS.COLORS.TEXT.TITLE .. " v" .. MTSLUI_ADDON.VERSION .. " loaded!")
-                        print(MTSLUI_FONTS.COLORS.TEXT.TITLE .. "MTSL (TBC):  Using data for phase " .. MTSL_DATA.CURRENT_PATCH_LEVEL .. " (" .. MTSL_LOGIC_WORLD:GetZoneNameById(MTSL_DATA.PHASE_IDS[MTSL_DATA.CURRENT_PATCH_LEVEL]) .. ")")
+                        print(MTSLUI_FONTS.COLORS.TEXT.TITLE .. "MTSL (WOTLK):  Using data for phase " .. MTSL_DATA.CURRENT_PATCH_LEVEL .. " (" .. MTSL_LOGIC_WORLD:GetZoneNameById(MTSL_DATA.PHASE_IDS[MTSL_DATA.CURRENT_PATCH_LEVEL]) .. ")")
                         if MTSLUI_SAVED_VARIABLES:GetFirstRunAfterUpdate() == 1 then
-                            print(MTSLUI_FONTS.COLORS.TEXT.SUCCESS .. "MTSL (TBC) got updatd to version " .. MTSLUI_ADDON.VERSION .. "! Use /mtsl new to view the recent changes.")
+                            print(MTSLUI_FONTS.COLORS.TEXT.SUCCESS .. "MTSL (WOTLK) got updatd to version " .. MTSLUI_ADDON.VERSION .. "! Use /mtsl new to view the recent changes.")
                             MTSLUI_SAVED_VARIABLES:DisableFirstRunAfterUpdate()
                         end
                     end
@@ -67,11 +67,11 @@ MTSLUI_EVENT_HANDLER = {
                     self.addon_loaded = 1
                 end
             else
-                print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL (TBC): Your locale " .. GetLocale() .. " is not supported!")
+                print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL (WOTLK): Your locale " .. GetLocale() .. " is not supported!")
                 self.addon_loaded = 0
             end
         else
-            print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL (TBC): Data for addon could not load. Please reinstall the addon!")
+            print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL (WOTLK): Data for addon could not load. Please reinstall the addon!")
             self.addon_loaded = 0
         end
     end,
@@ -99,7 +99,7 @@ MTSLUI_EVENT_HANDLER = {
     CRAFT_UPDATE = function(self)
         if CraftFrame then
             -- only trigger update event if we have the window opened
-            local localised_name, current_skill_level, max_level = GetCraftDisplaySkillLine()
+            local localised_name, current_skill_level, max_level = GetTradeSkillLine()
             local profession_name = MTSL_LOGIC_PROFESSION:GetEnglishProfessionNameFromLocalisedName(localised_name)
             self:RefreshSkillsOrSwapProfession(profession_name, current_skill_level, max_level)
         end
@@ -335,7 +335,7 @@ MTSLUI_EVENT_HANDLER = {
 		MTSL_CURRENT_OPENED_PROFESSION = profession_name
         if profession_name == "Enchanting" then
 			MTSL_CURRENT_OPENED_CRAFT = profession_name
-            MTSLUI_TOGGLE_BUTTON:SwapToCraftMode()
+            MTSLUI_TOGGLE_BUTTON:SwapToTradeSkillMode()
         else
 			MTSL_CURRENT_OPENED_TRADESKILL = profession_name
             MTSLUI_TOGGLE_BUTTON:SwapToTradeSkillMode()

@@ -287,7 +287,7 @@ MTSLUI_TOOLS = {
 	SetAddonLocale = function(self)
 		local locale = GetLocale()
 		if MTSLUI_LOCALES[locale] == nil then
-			print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL (TBC): Your locale " .. locale .. " is not supported!")
+			print(MTSLUI_FONTS.COLORS.TEXT.ERROR .. "MTSL (WOTLK): Your locale " .. locale .. " is not supported!")
 			return false
 		end
 		MTSLUI_CURRENT_LANGUAGE = MTSLUI_LOCALES[locale]
@@ -307,7 +307,7 @@ MTSLUI_TOOLS = {
 			if IsAddOnLoaded("TomTom") and SlashCmdList["TOMTOM_WAY"] ~= nil then
 				SlashCmdList["TOMTOM_WAY"](waypointinfo.zone .. " " .. waypointinfo.x .. " " .. waypointinfo.y .. " " .. waypointinfo.name .. " (" .. item_name .. ")")
 			elseif not self.tomtom_warned then
-				print(MTSLUI_FONTS.COLORS.TEXT.WARNING .. "MTSL (TBC): " .. self:GetLocalisedLabel("tomtom needed"))
+				print(MTSLUI_FONTS.COLORS.TEXT.WARNING .. "MTSL (WOTLK): " .. self:GetLocalisedLabel("tomtom needed"))
 				self.tomtom_warned = true
 			end
 		end

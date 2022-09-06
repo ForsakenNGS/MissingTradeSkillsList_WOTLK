@@ -1,16 +1,17 @@
-# MissingTradeSkillsList (TBC)
-Addon for World Of Warcraft Classic (The Burning Crusade) v2.5  
+# MissingTradeSkillsList (WOTLK)
+Addon for World Of Warcraft Classic (Wrath of the Lich King) v2.6.00
 Shows the missing recipes/skills for a tradeskill and where to get them  
-Addon works with **all** languages/locales! 
+Addon works with **all** languages/locales!
 
-Please **donate** (PayPal to thumbkin83@gmail.com) if you want to support this addon!
-
-Bug or request? Report an issue on https://github.com/Thumbkin/MissingTradeSkillsList_TBC
+Bug or request? Report an issue on https://github.com/ForsakenNGS/MissingTradeSkillsList_WOTLK/issues
 
 ### Author
-Thumbkin (Retail: EU-Burning Steppes, Classic: EU-Pyrewood Village)
+- Thumbkin (Retail: EU-Burning Steppes, Classic: EU-Pyrewood Village)
 
-### Screenshots (Not updated yet with TBC)
+#### Continued by
+- Mylaerla-Everlook
+
+### Screenshots (Not updated yet with WOTLK)
 MTSL - Vertical split (Change using options menu)  
 ![alt text](http://www.thumbkin.be/mtsl/images/tbc/mtsl_main.png "Missing TradeSkills List - Main window")  
 Account explorer (/mtsl acc or /mtsl account)  
@@ -59,7 +60,7 @@ Minimap button & Enhanced tooltip
 ### Support
 
 Found a bug? Want to report wrong data?  
-Make an issue here: https://github.com/Thumbkin/MissingTradeSkillsList_TBC/issues  
+Make an issue here: https://github.com/ForsakenNGS/MissingTradeSkillsList_WOTLK/issues
 Make sure to include the following details when making an issue:
 * Locale you play the game in (a.k.a. the language you play the game in)
 * Brief description of the problem

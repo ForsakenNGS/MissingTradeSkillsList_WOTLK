@@ -1,5 +1,8 @@
 ## Version History
 
+### v2.6.00 (September 6, 2022)
+* Renamed for WOTLK and adjusted interface version numbers
+
 ### v2.5.08 (June 19, 2021)
 
 * Optimised the way the addon scans for missing skills
@@ -11,7 +14,7 @@
   * All skills should now have the correct phase (if you find any mistake, create an isssue)
 * Added data:
   * Added item_id for each skill that represents the id of the item that is created when executing the spell
-  
+
 ### v2.5.07 (June 17, 2021)
 
 * All professions should now have all the correct data
@@ -30,7 +33,7 @@
   * All items have the correct phase now, if they drop in specific zone(s), those zone(s) are added
   * Removed unused NPCs
   * Removed unused or duplicate skills/items
-  
+
 ### v2.5.05 (June 8, 2021)
 
 * Fixed data
@@ -63,7 +66,7 @@
 * Added data
   * Currency "Glowcap"
   * Some cooking skills
-  * all TBC factions 
+  * all TBC factions
   * Book to learn first aid (Master)
 * Fixed data
   * Removed spell "Blinding powder" from Poisons

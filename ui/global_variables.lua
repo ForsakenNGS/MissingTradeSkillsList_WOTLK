@@ -5,8 +5,8 @@
 -- holds all info about the addon itself
 MTSLUI_ADDON = {
     AUTHOR = "Thumbkin",
-    NAME = "Missing TradeSkills List (TBC)",
-    VERSION = "2.5.08",
+    NAME = "Missing TradeSkills List (WOTLK)",
+    VERSION = "2.6.00",
     PATCH_TEXT =
 '* Optimised the way the addon scans for missing skills\n' ..
 '* Optimised code for scanning skills when swapping TradeSkillFrame & CraftFrame and rehooking MTSL button\n' ..
@@ -55,6 +55,7 @@ MTSLUI_ICONS_PROFESSION = {
     ["Enchanting"] = "136244", -- craft
     ["Engineering"] = "136243",
     ["Herbalism"] = "136065",
+    ["Inscription"] = "237171", -- New for WOTLK
     ["Jewelcrafting"] = "134071", -- New for TBC
     ["Leatherworking"] = "133611",
     ["Mining"] = "136248",
@@ -68,4 +69,4 @@ MTSLUI_ICONS_PROFESSION = {
     ["Poisons"] = "136242",
 }
 
-MTSLUI_ADDON_PATH = "Interface\\AddOns\\MissingTradeSkillsList_TBC"
+MTSLUI_ADDON_PATH = "Interface\\AddOns\\MissingTradeSkillsList_WOTLK"
