@@ -251,17 +251,24 @@ MTSL_LOGIC_PROFESSION = {
                     local skill_name, skill_type = GetTradeSkillInfo(i)
                     -- Skip the headers, only check real skills
                     if skill_name and skill_type ~= "header" then
-                        local crafted_item_id = GetTradeSkillItemLink(i):match("item:(%d+)")
-                        if crafted_item_id then
-                            local skill_id = MTSL_LOGIC_SKILL:GetSkillIdForProfessionByCraftedItemId(crafted_item_id, profession_name)
-                            if skill_id ~= 0 then
-                                table.insert(learned_skill_ids, skill_id)
-                            else
-                                local skill_id = MTSL_LOGIC_SKILL:GetSkillIdForProfessionByLocalisedName(skill_name, profession_name)
-                                if skill_id ~= 0 then
-                                    table.insert(learned_skill_ids, skill_id)
-                                end
-                            end
+                        local crafted_item_link = GetTradeSkillItemLink(i)
+                        if crafted_item_link then
+                          local crafted_item_id = crafted_item_link:match("item:(%d+)")
+                          if crafted_item_id then
+                              local skill_id = MTSL_LOGIC_SKILL:GetSkillIdForProfessionByCraftedItemId(crafted_item_id, profession_name)
+                              if skill_id ~= 0 then
+                                  table.insert(learned_skill_ids, skill_id)
+                              else
+                                  local skill_id = MTSL_LOGIC_SKILL:GetSkillIdForProfessionByLocalisedName(skill_name, profession_name)
+                                  if skill_id ~= 0 then
+                                      table.insert(learned_skill_ids, skill_id)
+                                  end
+                              end
+                          end
+                        else
+                          local enchant_link = GetTradeSkillRecipeLink(i)
+                          local itemID = enchant_link:match("enchant:(%d+)")
+                          table.insert(learned_skill_ids, itemID)
                         end
                     end
                 end

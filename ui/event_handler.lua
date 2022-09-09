@@ -80,17 +80,17 @@ MTSLUI_EVENT_HANDLER = {
     -- Event started when a crafting window is closed
     ---------------------------------------------------------------------------------------
     CRAFT_CLOSE = function(self)
-		MTSL_CURRENT_OPENED_CRAFT = nil
-		MTSL_CURRENT_OPENED_PROFESSION = nil
+  		MTSL_CURRENT_OPENED_CRAFT = nil
+  		MTSL_CURRENT_OPENED_PROFESSION = nil
 
-		-- Swap to Craft window it is open
-		if MTSL_CURRENT_OPENED_TRADESKILL then
-			self:TRADE_SKILL_UPDATE()
-			-- hide the button cause no craft frame is open to rehook it
-		else
-			MTSLUI_TOGGLE_BUTTON:Hide()
-			MTSLUI_MISSING_TRADESKILLS_FRAME:Hide()
-		end
+  		-- Swap to Craft window it is open
+  		if MTSL_CURRENT_OPENED_TRADESKILL then
+  			self:TRADE_SKILL_UPDATE()
+  			-- hide the button cause no craft frame is open to rehook it
+  		else
+  			MTSLUI_TOGGLE_BUTTON:Hide()
+  			MTSLUI_MISSING_TRADESKILLS_FRAME:Hide()
+  		end
     end,
 
     ---------------------------------------------------------------------------------------
@@ -134,17 +134,17 @@ MTSLUI_EVENT_HANDLER = {
     -- Event started when a trade skill windows is closed
     ---------------------------------------------------------------------------------------
     TRADE_SKILL_CLOSE = function(self)
-		MTSL_CURRENT_OPENED_TRADESKILL = nil
-		MTSL_CURRENT_OPENED_PROFESSION = nil
+  		MTSL_CURRENT_OPENED_TRADESKILL = nil
+  		MTSL_CURRENT_OPENED_PROFESSION = nil
 
-		-- Swap to Craft window it is open
-		if MTSL_CURRENT_OPENED_CRAFT then
-			self:CRAFT_UPDATE()
-		-- hide the button cause no craft frame is open to rehook it
-		else
-			MTSLUI_TOGGLE_BUTTON:Hide()
-			MTSLUI_MISSING_TRADESKILLS_FRAME:Hide()
-		end
+  		-- Swap to Craft window it is open
+  		if MTSL_CURRENT_OPENED_CRAFT then
+  			self:CRAFT_UPDATE()
+		    -- hide the button cause no craft frame is open to rehook it
+  		else
+  			MTSLUI_TOGGLE_BUTTON:Hide()
+  			MTSLUI_MISSING_TRADESKILLS_FRAME:Hide()
+  		end
     end,
 
     ---------------------------------------------------------------------------------------
@@ -162,13 +162,13 @@ MTSLUI_EVENT_HANDLER = {
     end,
 
     RefreshSkillsOrSwapProfession = function(self, profession_name, current_skill_level, max_level)
-		if profession_name then
-			if MTSL_CURRENT_OPENED_PROFESSION == profession_name then
-                self:RefreshSkills(profession_name, current_skill_level, max_level)
-            else
-                self:SwapToProfession(profession_name, current_skill_level, max_level)
-            end
+  		if profession_name then
+  			if MTSL_CURRENT_OPENED_PROFESSION == profession_name then
+            self:RefreshSkills(profession_name, current_skill_level, max_level)
+        else
+            self:SwapToProfession(profession_name, current_skill_level, max_level)
         end
+      end
     end,
 
     ---------------------------------------------------------------------------------------
@@ -332,13 +332,13 @@ MTSLUI_EVENT_HANDLER = {
     -- @max_level               Number      Maximum number of skilllevel that can be achieved for current rank
     ---------------------------------------------------------------------------------------
     SwapToProfession = function(self, profession_name, current_skill_level, max_level)
-		MTSL_CURRENT_OPENED_PROFESSION = profession_name
+	      MTSL_CURRENT_OPENED_PROFESSION = profession_name
         if profession_name == "Enchanting" then
-			MTSL_CURRENT_OPENED_CRAFT = profession_name
-            MTSLUI_TOGGLE_BUTTON:SwapToTradeSkillMode()
+          MTSL_CURRENT_OPENED_TRADESKILL = profession_name
+          MTSLUI_TOGGLE_BUTTON:SwapToTradeSkillMode()
         else
-			MTSL_CURRENT_OPENED_TRADESKILL = profession_name
-            MTSLUI_TOGGLE_BUTTON:SwapToTradeSkillMode()
+          MTSL_CURRENT_OPENED_TRADESKILL = profession_name
+          MTSLUI_TOGGLE_BUTTON:SwapToTradeSkillMode()
         end
 
         MTSLUI_TOGGLE_BUTTON:Show()
